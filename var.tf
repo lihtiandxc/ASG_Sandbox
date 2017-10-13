@@ -23,3 +23,9 @@ variable "sg" {
     itachi = "sg-43984d25"
     }
   }
+
+variable "iam_role" {
+   default {
+     itachi = "fr-stg-design03-role"
+     }
+  }
