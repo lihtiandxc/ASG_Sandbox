@@ -16,11 +16,10 @@ resource "aws_instance" "itachi" {
   ]
 
   subnet_id            = "${element(var.private, 1)}"
-  iam_instance_profile = "${aws_iam_instance_profile.role.name}"
+  iam_instance_profile = "${var.iam_role["itachi"]}"
 
   tags {
     Name = "${var.name["ec2_itachi"]}"
-
     Service = "${var.tags["service"]}"
 
   }
