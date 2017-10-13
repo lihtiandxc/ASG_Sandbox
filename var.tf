@@ -17,3 +17,9 @@ variable "private" {
     "subnet-16d0325f",
   ]
 }
+
+variable "sg" {
+  default {
+    itachi = "sg-43984d25"
+    }
+  }
