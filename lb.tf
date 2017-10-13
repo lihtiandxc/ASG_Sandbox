@@ -1,16 +1,16 @@
 data "aws_acm_certificate" "domain" {
-  domain = "*.lihtian.com"
+  domain = "lihtian.com"
 }
 
 resource "aws_elb" "itachi" {
-  name = "${var.name["elb_itachi"]}"
+  name = "${var.name["ec2_itachi"]}"
 
   subnets = [
     "${element(var.private, 0)}",
     "${element(var.private, 1)}",
   ]
 
-  security_groups = "${var.sg["itachi"]}"
+  security_groups = ["${var.sg["itachi"]}"]
 
   listener {
     instance_port      = 80
