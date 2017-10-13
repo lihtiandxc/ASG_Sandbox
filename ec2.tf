@@ -10,10 +10,8 @@ resource "aws_instance" "itachi" {
   disable_api_termination = "true"
   key_name                = "ec2_user"
 
-  vpc_security_group_ids = [
-    "${var.management}",
-    "${aws_security_group.sg.id}",
-  ]
+  vpc_security_group_ids = ["${var.sg["itachi"]}" ]
+  
 
   subnet_id            = "${element(var.private, 1)}"
   iam_instance_profile = "${var.iam_role["itachi"]}"
