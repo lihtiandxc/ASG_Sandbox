@@ -27,7 +27,7 @@ resource "aws_instance" "itachi" {
     volume_size = "8"
   }
 
-#  lifecycle {
-#    ignore_changes = ["ami"]
-#  }
+  lifecycle {
+    ignore_changes = ["ami"]
+  }
 }
