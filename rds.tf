@@ -1,5 +1,5 @@
 variable "rds_subnet" {
-  default = "subnet-f39e6094"
+  default = "itachi101-rds-subnet"
 }
 
 
@@ -21,12 +21,13 @@ resource "aws_db_instance" "boss" {
   engine_version       = "${var.mysql_boss["version"]}"
 ## parameter_group_name = "${aws_db_parameter_group.master.id}"
 
-  instance_class            = "db.t2.mirco"
+  instance_class            = "db.t2.micro"
   storage_type              = "gp2"
   allocated_storage         = "${var.mysql_boss["storage"]}"
-  multi_az                  = "${var.tags["env"] == "production" ? "true" : "false"}"
+ # multi_az                  = "${var.tags["env"] == "production" ? "true" : "false"}"
+  multi_az                  = "false"
   db_subnet_group_name      = "${var.rds_subnet}"
-  storage_encrypted         = true
+  storage_encrypted         = "false" 
   final_snapshot_identifier = "${var.name["rds_boss"]}-finalsnap"
 
   auto_minor_version_upgrade = false

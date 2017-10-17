@@ -1,3 +1,7 @@
+provider "aws" {
+  region     = "ap-southeast-1"
+}
+
 variable "tags" {
   default = {
     service = "itachi"
@@ -7,6 +11,7 @@ variable "tags" {
 variable "name" {
   default {
     ec2_itachi = "itachi01-virtual-server"
+    rds_boss = "itachi101-rds-mysql"
   }
 }
 
