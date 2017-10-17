@@ -47,3 +47,29 @@ resource "aws_db_instance" "boss" {
 
   }
 }
+
+
+resource "aws_db_instance" "replica_mysql" {
+  identifier = "${var.name["rds_replica_boss"]}"
+
+  vpc_security_group_ids = ["${var.sg["itachi"]}"]
+
+  instance_class       = "db.t2.micro"
+  storage_type         = "gp2"
+  multi_az             = "false"
+  replicate_source_db  = "${aws_db_instance.master.identifier}"
+  storage_encrypted    = "false"
+  skip_final_snapshot  = true
+
+  auto_minor_version_upgrade = false
+  backup_retention_period    = 1
+  apply_immediately          = true
+
+  maintenance_window = "${var.mysql_boss["maintenance_window"]}"
+
+  backup_window = "${var.mysql_replica["backup_window"]}"
+
+  tags = {
+    Service = "${var.tags["service"]}"
+  }
+}
