@@ -21,13 +21,14 @@ resource "aws_db_instance" "boss" {
   engine_version       = "${var.mysql_boss["version"]}"
 ## parameter_group_name = "${aws_db_parameter_group.master.id}"
 
-  instance_class            = "db.t2.micro"
+  instance_class            = "db.t2.small"
   storage_type              = "gp2"
   allocated_storage         = "${var.mysql_boss["storage"]}"
  # multi_az                  = "${var.tags["env"] == "production" ? "true" : "false"}"
   multi_az                  = "false"
   db_subnet_group_name      = "${var.rds_subnet}"
   storage_encrypted         = "false" 
+  snapshot_identifier	    = "itachi101-rds-mysql-55600"
   final_snapshot_identifier = "${var.name["rds_boss"]}-finalsnap"
 
   auto_minor_version_upgrade = false
