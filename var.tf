@@ -29,3 +29,13 @@ variable "iam_role" {
      itachi = "fr-stg-design03-role"
      }
   }
+
+variable "mysql_boss" {
+  default = {
+    storage            = 100
+    engine             = "MySQL"
+    version            = "5.7.17"
+    backup_window      = "15:00-16:00"
+    maintenance_window = "Sat:17:00-Sat:18:00"
+  }
+}
