@@ -12,6 +12,7 @@ variable "name" {
   default {
     ec2_itachi = "itachi01-virtual-server"
     rds_boss = "itachi101-rds-mysql"
+    rds_replica_boss = "itachi102-rds-mysql"
   }
 }
 
