@@ -57,7 +57,7 @@ resource "aws_db_instance" "replica_mysql" {
   instance_class       = "db.t2.micro"
   storage_type         = "gp2"
   multi_az             = "false"
-  replicate_source_db  = "${aws_db_instance.master.identifier}"
+  replicate_source_db  = "${aws_db_instance.boss.identifier}"
   storage_encrypted    = "false"
   skip_final_snapshot  = true
 
@@ -67,7 +67,7 @@ resource "aws_db_instance" "replica_mysql" {
 
   maintenance_window = "${var.mysql_boss["maintenance_window"]}"
 
-  backup_window = "${var.mysql_replica["backup_window"]}"
+  backup_window = "${var.mysql_boss["backup_window"]}"
 
   tags = {
     Service = "${var.tags["service"]}"
