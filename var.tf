@@ -14,6 +14,7 @@ variable "name" {
     rds_boss = "itachi101-rds-mysql"
     rds_replica_boss = "itachi102-rds-mysql"
     itach001_s3_policy = "itachi001_policy" 
+    iam_user_itachi001 = "itachi001"
   }
 }
 
