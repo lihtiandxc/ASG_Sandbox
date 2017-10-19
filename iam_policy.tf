@@ -1,6 +1,5 @@
 resource "aws_iam_policy" "policy_itachi001" {
   name        = "policy_itachi001"
-  path        = "/"
   description = "My test policy"
 
   policy = <<EOF
