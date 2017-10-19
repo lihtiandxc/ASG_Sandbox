@@ -13,6 +13,7 @@ variable "name" {
     ec2_itachi = "itachi01-virtual-server"
     rds_boss = "itachi101-rds-mysql"
     rds_replica_boss = "itachi102-rds-mysql"
+    iam_user_itach001_s3_policy = "itachi001_policy" 
   }
 }
 
