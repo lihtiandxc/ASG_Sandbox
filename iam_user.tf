@@ -1,3 +1,5 @@
+### Problem ###
+
 resource "aws_iam_user" "itachi001" {
   name = "${var.name["iam_user_itachi001"]}"
 }
@@ -8,16 +10,24 @@ resource "aws_iam_policy" "policy_itachi001" {
 
   policy = <<EOF
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "ec2:Describe*"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::fr-staging-vir-message"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::fr-staging-vir-message/*"
+        }
+    ]
 }
 EOF
 }
