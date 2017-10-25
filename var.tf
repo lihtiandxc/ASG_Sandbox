@@ -34,7 +34,7 @@ variable "sg" {
 
 variable "iam_role" {
    default {
-     itachi = "fr-stg-design03-role"
+     itachi = "design03-role"
      }
   }
 
