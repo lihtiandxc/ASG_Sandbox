@@ -9,12 +9,12 @@
         {
             "Effect": "Allow",
             "Action": "s3:ListBucket",
-            "Resource": "arn:aws:s3:::fr-staging-vir-message"
+            "Resource": "arn:aws:s3:::*"
         },
         {
             "Effect": "Allow",
             "Action": "s3:*",
-            "Resource": "arn:aws:s3:::fr-staging-vir-message/*"
+            "Resource": "arn:aws:s3:::*"
         }
     ]
 }
