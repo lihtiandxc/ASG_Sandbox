@@ -4,6 +4,10 @@ resource "aws_iam_user" "itachi001" {
   name = "${var.name["iam_user_itachi001"]}"
 }
 
+resource "aws_iam_access_key" "itachi001" {
+  user = "${aws_iam_user.itachi001.id}"
+}
+
 resource "aws_iam_policy" "policy_itachi001v2" {
   name        = "policy_itachi001v2"
   path        = "/"
@@ -32,8 +36,8 @@ resource "aws_iam_policy" "policy_itachi004" {
   policy      = "${data.template_file.itachi004_policy.rendered}"
 }
 
-#resource "aws_iam_user_policy_attachment" "test-attach" {
-#    user       = "${aws_iam_user.itachi001.name}"
-#    policy_arn = "${aws_iam_policy.policy_itachi001.arn}"
-#}
+resource "aws_iam_user_policy_attachment" "test-attach" {
+    user       = "${aws_iam_user.itachi001.id}"
+    policy_arn = "${aws_iam_policy.policy_itachi004.arn}"
+}
 
