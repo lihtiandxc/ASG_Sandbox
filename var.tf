@@ -10,11 +10,13 @@ variable "tags" {
 
 variable "name" {
   default {
-    ec2_itachi = "itachi01-virtual-server"
-    rds_boss = "itachi101-rds-mysql"
-    rds_replica_boss = "itachi102-rds-mysql"
+    ec2_itachi         = "itachi01-virtual-server"
+    rds_boss           = "itachi101-rds-mysql"
+    rds_replica_boss   = "itachi102-rds-mysql"
     itach001_s3_policy = "itachi001_policy" 
     iam_user_itachi001 = "itachi001"
+    s3_aism            = "staging-vir-account-aism"
+    ec2_role_s3_policy = "s3-access-aism"
   }
 }
 
@@ -37,6 +39,12 @@ variable "iam_role" {
      itachi = "design03-role"
      }
   }
+
+variable "region" {
+   default {
+      asia = "ap-southeast-1"
+    }
+}
 
 variable "mysql_boss" {
   default = {
