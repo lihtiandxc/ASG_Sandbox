@@ -1,6 +1,7 @@
 variable "tags" {
   default = {
     service = "itachi"
+    env     = "test"
   }
 }
 
