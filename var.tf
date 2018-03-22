@@ -7,6 +7,7 @@ variable "tags" {
 variable "name" {
   default {
     ec2_itachi = "itachi01-virtual-server"
+    ec2_itachi2 = "itachi02-virtual-server"
   }
 }
 
