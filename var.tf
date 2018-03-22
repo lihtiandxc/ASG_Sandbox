@@ -5,11 +5,13 @@ provider "aws" {
 variable "tags" {
   default = {
     service = "itachi"
+    env     = "test"
   }
 }
 
 variable "name" {
   default {
+    ec2_itachi2        = "itachi02-virtual-server"
     ec2_itachi         = "itachi01-virtual-server"
     rds_boss           = "itachi101-rds-mysql"
     rds_replica_boss   = "itachi102-rds-mysql"
@@ -17,6 +19,7 @@ variable "name" {
     iam_user_itachi001 = "itachi001"
     s3_aism            = "staging-vir-account-aism"
     ec2_role_s3_policy = "s3-access-aism"
+
   }
 }
 
